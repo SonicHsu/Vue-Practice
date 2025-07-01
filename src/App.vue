@@ -5,23 +5,28 @@ const count = ref(0);
 </script>
 
 <template>
-  <h1 class="text-3xl">{{ count }}</h1>
-  <header>
-    <nav>
-      <button
-        class="bg-blue-400 rounded-xl px-2 cursor-pointer text-white"
-        @click="count--"
-      >
-        Button01
-      </button>
-      <button
-        class="bg-blue-400 rounded-xl px-2 cursor-pointer text-white"
-        @click="count++"
-      >
-        Button01
-      </button>
-    </nav>
-  </header>
+  <div class="h-screen bg-[url('./public/camping-bg.jpg')] bg-cover bg-center">
+    <div class="flex flex-col items-center justify-center h-full bg-black/50">
+      <h1 class="text-white text-5xl font-bold">Camping</h1>
+
+      <header class="w-screen flex justify-center mt-5">
+        <nav class="space-x-5">
+          <button
+            class="bg-gray-400 rounded-sm px-2 cursor-pointer text-white text-xl"
+            @click=""
+          >
+            Button01
+          </button>
+          <button
+            class="bg-gray-400 rounded-sm px-2 cursor-pointer text-white text-xl"
+            @click=""
+          >
+            Button02
+          </button>
+        </nav>
+      </header>
+    </div>
+  </div>
 </template>
 
 <style scoped></style>
