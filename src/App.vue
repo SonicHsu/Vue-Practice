@@ -1,7 +1,12 @@
 <script setup>
 import "./style.css";
 import { ref } from "vue";
+import BaseButton from './components/BaseButton.vue';
 const count = ref(0);
+
+function handleClick(msg) {
+  console.log('點擊了按鈕：', msg);
+}
 </script>
 
 <template>
@@ -11,18 +16,9 @@ const count = ref(0);
 
       <header class="w-screen flex justify-center mt-5">
         <nav class="space-x-5">
-          <button
-            class="bg-gray-400 rounded-sm px-2 cursor-pointer text-white text-xl"
-            @click=""
-          >
-            Button01
-          </button>
-          <button
-            class="bg-gray-400 rounded-sm px-2 cursor-pointer text-white text-xl"
-            @click=""
-          >
-            Button02
-          </button>
+          <BaseButton @click="handleClick('Button01')">Button01</BaseButton>
+          <BaseButton @click="handleClick('Button02')">Button02</BaseButton>
+          <BaseButton @click="handleClick('Button03')">Button03</BaseButton>
         </nav>
       </header>
     </div>
