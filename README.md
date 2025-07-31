@@ -1,5 +1,20 @@
-# Vue 3 + Vite
+## ✅ 目前學習內容
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+- `ref`：建立響應式資料
+- `v-bind`：綁定 class 與屬性，達到動態樣式效果
+- `v-on`：監聽事件，如點擊按鈕切換狀態
+- `v-model`：雙向綁定輸入框，及時反映使用者輸入
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+目前已實作的功能包含：
+
+- 點擊按鈕改變副標題文字與顏色
+- 即時輸入內容，畫面同步顯示
+- 使用自訂元件 `<BaseButton />` 統一按鈕樣式
+
+---
+
+## 🎯 下一階段學習目標：`v-if`
+
+- 使用 `v-if` / `v-else` 控制畫面條件渲染
+- 動態控制 DOM 元素是否出現
+- 搭配 `ref` 切換顯示區塊（如提示訊息 / loading 畫面）
