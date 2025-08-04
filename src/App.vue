@@ -1,6 +1,6 @@
 <script setup>
 import "./style.css";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import BaseButton from "./components/BaseButton.vue";
 import { campingItems } from "./data/campingItems";
 
@@ -11,11 +11,16 @@ const webSubtitle = ref("");
 const titleColor = ref("text-white");
 const text = ref("");
 const campingItemsObjects = ref(campingItems);
+const hideButton = ref(false)
 
 function handleClick(msg) {
   webSubtitle.value = msg;
   titleColor.value = msg;
   handleColorChange();
+}
+
+function hideButtonHandle() {
+  hideButton.value = !hideButton.value
 }
 
 const isTextRed = ref(false);
@@ -27,10 +32,23 @@ function handleColorChange() {
 }
 
 function addItem(){
-campingItemsObjects.value.push({id:campingItemsObjects.value.length+1 , name:text.value , category:text.value, price:text.value})
+campingItemsObjects.value.push({id:campingItemsObjects.value.length+1 , name:text.value , category:text.value, price:text.value, done:false})
 
 text.value = ''
 }
+
+function removeItem(object){
+
+campingItemsObjects.value = campingItemsObjects.value.filter((t) => {
+  return t.id !== object.id
+})
+}
+
+const filterObjects = computed(() => {
+return hideButton.value ? 
+   campingItemsObjects.value.filter((object) => !object.done) :
+   campingItemsObjects.value
+})
 
 </script>
 
@@ -68,10 +86,14 @@ text.value = ''
       <p v-else>the Text is Green</p>
 
       <ul>
-        <li v-for="object in campingItemsObjects" :key="object.id">
-          {{ object.name }} - {{ object.price }}
+        <li v-for="object in filterObjects" :key="object.id">
+          <input type="checkbox" v-model="object.done">
+          {{ object.name }} - {{ object.price }} <button @click="removeItem(object)" class="cursor-pointer">X</button>
         </li>
       </ul>
+
+      <BaseButton @click="hideButtonHandle">Hide</BaseButton>
+
     </div>
   </div>
 </template>
