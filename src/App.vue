@@ -21,6 +21,8 @@ function handleClick(msg) {
 
 function hideButtonHandle() {
   hideButton.value = !hideButton.value
+  console.log(filterObjects.value)
+  console.log(hideButton.value)
 }
 
 const isTextRed = ref(false);
@@ -94,7 +96,10 @@ return hideButton.value ?
 
       <BaseButton @click="hideButtonHandle">Hide</BaseButton>
 
+      
+
     </div>
+    
   </div>
 </template>
 
